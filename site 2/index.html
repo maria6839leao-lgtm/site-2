@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assistência Técnica | Pré-Orçamento</title>
+
+<meta name="description" content="Solicite um pré-orçamento gratuito para conserto de celulares, notebooks, TVs, videogames e outros eletrônicos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+:root{
+
+--azul:#00b7ff;
+
+--azul2:#0077ff;
+
+--verde:#25D366;
+
+--fundo:#050b18;
+
+--card:#0d1730;
+
+--branco:#fff;
+
+--texto:#b9c5dd;
+
+--borda:rgba(255,255,255,.08);
+
+}
+
+body{
+
+background:var(--fundo);
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+
+url("banner.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+
+height:600px;
+
+background:#0099ff30;
+
+filter:blur(150px);
+
+right:-250px;
+
+top:-180px;
+
+z-index:-1;
+
+}
+
+header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:18px 7%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(18px);
+
+background:rgba(0,0,0,.25);
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+z-index:999;
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+font-size:24px;
+
+font-weight:700;
+
+}
+
+.logo img{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:2px solid var(--azul);
+
+}
+
+.logo span{
+
+color:var(--azul);
+
+}
+
+nav{
+
+display:flex;
+
+gap:30px;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:var(--azul);
+
+}
+
+.menu{
+
+display:none;
+
+font-size:30px;
+
+cursor:pointer;
+
+}
+
+.hero{
+
+padding-top:170px;
+
+padding-bottom:100px;
+
+padding-left:8%;
+
+padding-right:8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+align-items:center;
+
+gap:50px;
+
+}
+
+.hero h1{
+
+font-size:55px;
+
+line-height:1.1;
+
+margin-bottom:20px;
+
+}
+
+.hero h1 span{
+
+color:var(--azul);
+
+}
+
+.hero p{
+
+font-size:18px;
+
+color:var(--texto);
+
+line-height:1.8;
+
+margin-bottom:35px;
+
+}
+
+.botoes{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+.btn{
+
+padding:16px 30px;
+
+border-radius:60px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.btn-primary{
+
+background:linear-gradient(90deg,var(--azul),var(--azul2));
+
+color:white;
+
+box-shadow:0 0 30px #0099ff66;
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-6px);
+
+}
+
+.btn-whats{
+
+background:var(--verde);
+
+color:white;
+
+}
+
+.hero img{
+
+width:100%;
+
+border-radius:30px;
+
+box-shadow:0 0 50px rgba(0,174,255,.25);
+
+border:2px solid rgba(255,255,255,.08);
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
+.titulo{
+
+font-size:40px;
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+.titulo span{
+
+color:var(--azul);
+
+}
+
+.sub{
+
+text-align:center;
+
+max-width:850px;
+
+margin:auto;
+
+color:var(--texto);
+
+margin-bottom:60px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:var(--card);
+
+padding:35px;
+
+border-radius:25px;
+
+border:1px solid var(--borda);
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 35px rgba(0,153,255,.18);
+
+}
+
+.card i{
+
+font-size:45px;
+
+color:var(--azul);
+
+margin-bottom:25px;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+color:var(--texto);
+
+line-height:1.7;
+
+}
+
+.estatisticas{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:25px;
+
+margin-top:70px;
+
+}
+
+.numero{
+
+background:var(--card);
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+border:1px solid var(--borda);
+
+}
+
+.numero h2{
+
+font-size:40px;
+
+color:var(--azul);
+
+}
+
+.numero p{
+
+margin-top:10px;
+
+color:var(--texto);
+
+}
+
+@media(max-width:900px){
+
+nav{
+
+position:fixed;
+
+top:80px;
+
+right:-100%;
+
+width:280px;
+
+height:100vh;
+
+background:#081122;
+
+display:flex;
+
+flex-direction:column;
+
+padding:40px;
+
+transition:.4s;
+
+}
+
+nav.active{
+
+right:0;
+
+}
+
+.menu{
+
+display:block;
+
+}
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero{
+
+padding-top:140px;
+
+}
+
+}
+
+.formulario{
+
+background:var(--card);
+
+border-radius:30px;
+
+padding:40px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 0 40px rgba(0,153,255,.10);
+
+}
+
+.formulario h2{
+
+margin-bottom:10px;
+
+font-size:32px;
+
+}
+
+.formulario p{
+
+color:var(--texto);
+
+margin-bottom:30px;
+
+}
+
+.linha{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+margin-bottom:20px;
+
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+
+padding:16px;
+
+border-radius:12px;
+
+background:#081122;
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#fff;
+
+outline:none;
+
+font-size:15px;
+
+}
+
+textarea{
+
+resize:none;
+
+height:180px;
+
+}
+
+input[type=file]{
+
+padding:25px;
+
+cursor:pointer;
+
+}
+
+.preview{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.preview img{
+
+width:100%;
+
+height:120px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<img src="c:\Users\NathanAlcantaraPerei.AzureAD\Downloads\WhatsApp Image 2026-07-29 at 16.39.43.jpeg" alt="Logo">
+
+<div>
+
+Assistência <span>Técnica</span>
+
+</div>
+
+</div>
+
+<i class="fa-solid fa-bars menu" id="menu"></i>
+
+<nav id="nav">
+
+<a href="#inicio">Início</a>
+
+<a href="#servicos">Serviços</a>
+
+<a href="#orcamento">Pré-Orçamento</a>
+
+<a href="#vantagens">Vantagens</a>
+
+<a href="#contato">Contato</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="inicio">
+
+<div>
+
+<h1>
+
+Consertamos seu
+
+<span>Eletrônico</span>
+
+com rapidez e segurança.
+
+</h1>
+
+<p>
+
+Solicite gratuitamente um pré-orçamento para celulares,
+notebooks, computadores, TVs, videogames,
+caixas de som, tablets e diversos aparelhos eletrônicos.
+
+Nossa equipe analisará as informações e retornará
+o mais rápido possível.
+
+</p>
+
+<div class="botoes">
+
+<a
+href="https://wa.me/5519953282507"
+target="_blank"
+class="btn btn-whats">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Falar no WhatsApp
+
+</a>
+
+<a href="#orcamento" class="btn btn-primary">
+
+Solicitar Pré-Orçamento
+
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="c:\Users\NathanAlcantaraPerei.AzureAD\Downloads\WhatsApp Image 2026-07-29 at 16.39.43.jpeg" alt="Banner da Assistência">
+
+</div>
+
+</section>
+
+<section>
+
+<div class="estatisticas">
+
+<div class="numero">
+
+<h2>+500</h2>
+
+<p>Consertos realizados</p>
+
+</div>
+
+<div class="numero">
+
+<h2>98%</h2>
+
+<p>Clientes satisfeitos</p>
+
+</div>
+
+<div class="numero">
+
+<h2>24h</h2>
+
+<p>Diagnóstico rápido</p>
+
+</div>
+
+<div class="numero">
+
+<h2>100%</h2>
+
+<p>Garantia no serviço</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="servicos">
+
+<h2 class="titulo">
+
+Nossos <span>Serviços</span>
+
+</h2>
+
+<p class="sub">
+
+Realizamos manutenção preventiva e corretiva em diversos
+equipamentos eletrônicos.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+<h3>Celulares</h3>
+
+<p>
+
+Troca de tela,
+bateria,
+conector,
+câmeras,
+microfone,
+alto-falante,
+software e desbloqueios.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-laptop"></i>
+
+<h3>Notebook</h3>
+
+<p>
+
+Limpeza,
+formatação,
+troca de tela,
+SSD,
+memória,
+teclado,
+placa-mãe e recuperação de sistema.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-desktop"></i>
+
+<h3>Computadores</h3>
+
+<p>
+
+Upgrade,
+montagem,
+limpeza,
+fonte,
+placa de vídeo,
+placa-mãe,
+processadores e manutenção completa.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-tv"></i>
+
+<h3>Smart TV</h3>
+
+<p>
+
+Reparo de imagem,
+backlight,
+placa principal,
+fonte,
+HDMI,
+Wi-Fi e atualizações.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-gamepad"></i>
+
+<h3>Videogames</h3>
+
+<p>
+
+PlayStation,
+Xbox,
+Nintendo Switch,
+troca de HDMI,
+limpeza interna,
+cooler e manutenção.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-tablet-screen-button"></i>
+
+<h3>Tablets</h3>
+
+<p>
+
+Troca de vidro,
+display,
+bateria,
+software,
+conector de carga e reparos gerais.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-camera"></i>
+
+<h3>Câmeras</h3>
+
+<p>
+
+Reparo,
+limpeza,
+lentes,
+sensores,
+flash,
+gravação e acessórios.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-volume-high"></i>
+
+<h3>Caixas de Som</h3>
+
+<p>
+
+Bluetooth,
+placa,
+bateria,
+alto-falantes,
+conectores,
+USB e carregamento.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="vantagens">
+
+<h2 class="titulo">
+
+Por que escolher nossa
+
+<span>Assistência?</span>
+
+</h2>
+
+<p class="sub">
+
+Trabalhamos com peças de qualidade, profissionais
+capacitados e atendimento rápido para oferecer a melhor
+experiência aos nossos clientes.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Garantia</h3>
+
+<p>
+
+Todos os serviços possuem garantia conforme o tipo
+de reparo realizado.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-stopwatch"></i>
+
+<h3>Diagnóstico Rápido</h3>
+
+<p>
+
+Analisamos o defeito do aparelho e enviamos um
+pré-orçamento rapidamente.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+<h3>Técnicos Especializados</h3>
+
+<p>
+
+Equipe treinada para trabalhar com diversas marcas
+e modelos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>Suporte</h3>
+
+<p>
+
+Atendimento antes, durante e após o conserto.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- PRÉ-ORÇAMENTO -->
+<!-- ========================= -->
+
+<section id="orcamento">
+
+<div class="formulario">
+
+<h2>Solicite seu Pré-Orçamento</h2>
+
+<p>
+
+Preencha as informações abaixo e envie fotos, vídeos
+ou documentos do seu aparelho para facilitar a análise.
+
+</p>
+
+<form id="formOrcamento">
+
+<div class="linha">
+
+<input
+type="text"
+id="nome"
+placeholder="Seu Nome"
+required>
+
+<input
+type="tel"
+id="telefone"
+placeholder="Telefone / WhatsApp"
+required>
+
+</div>
+
+<div class="linha">
+
+<input
+type="email"
+id="email"
+placeholder="E-mail">
+
+<select id="tipo">
+
+<option>Tipo do Aparelho</option>
+
+<option>Celular</option>
+
+<option>Notebook</option>
+
+<option>Computador</option>
+
+<option>Tablet</option>
+
+<option>Smart TV</option>
+
+<option>Videogame</option>
+
+<option>Caixa de Som</option>
+
+<option>Outro</option>
+
+</select>
+
+</div>
+
+<div class="linha">
+
+<input
+type="text"
+id="marca"
+placeholder="Marca">
+
+<input
+type="text"
+id="modelo"
+placeholder="Modelo">
+
+</div>
+
+<textarea
+
+id="defeito"
+
+placeholder="Descreva o defeito do aparelho com o máximo de detalhes possível."
+
+></textarea>
+
+<br><br>
+
+<label>
+
+<strong>Fotos do aparelho</strong>
+
+</label>
+
+<input
+
+type="file"
+
+id="fotos"
+
+accept="image/*"
+
+multiple>
+
+<div id="previewFotos" class="preview"></div>
+
+<br>
+
+<label>
+
+<strong>Vídeos do aparelho</strong>
+
+</label>
+
+<input
+
+type="file"
+
+accept="video/*"
+
+multiple>
+
+<br><br>
+
+<label>
+
+<strong>Documentos</strong>
+
+</label>
+
+<input
+
+type="file"
+
+accept=".pdf,.doc,.docx,.txt"
+
+multiple>
+
+<br><br>
+
+<div class="botoes">
+
+<button
+
+type="button"
+
+id="btnWhatsapp"
+
+class="btn btn-whats">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Enviar pelo WhatsApp
+
+</button>
+
+<button
+
+type="reset"
+
+class="btn btn-primary">
+
+Limpar Formulário
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- COMO FUNCIONA -->
+<!-- ========================= -->
+
+<section>
+
+<h2 class="titulo">
+
+Como <span>Funciona</span>
+
+</h2>
+
+<p class="sub">
+
+Solicitar um orçamento é simples e leva menos de dois minutos.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-file-circle-plus"></i>
+
+<h3>1. Preencha o formulário</h3>
+
+<p>
+
+Informe o máximo possível de detalhes do defeito.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-images"></i>
+
+<h3>2. Envie fotos e vídeos</h3>
+
+<p>
+
+Quanto mais informações, mais preciso será o pré-orçamento.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-comments"></i>
+
+<h3>3. Receba nossa análise</h3>
+
+<p>
+
+Nossa equipe entrará em contato rapidamente.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+<h3>4. Traga o aparelho</h3>
+
+<p>
+
+Após aprovação, iniciamos o reparo com garantia.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MARCAS -->
+<!-- ========================= -->
+
+<section>
+
+<h2 class="titulo">
+
+Marcas <span>Atendidas</span>
+
+</h2>
+
+<p class="sub">
+
+Trabalhamos com diversas marcas nacionais e internacionais.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Apple</h3>
+
+<p>iPhone • iPad • MacBook</p>
+
+</div>
+
+<div class="card">
+
+<h3>Samsung</h3>
+
+<p>Galaxy • Notebook • Tablet</p>
+
+</div>
+
+<div class="card">
+
+<h3>Motorola</h3>
+
+<p>Smartphones e Tablets</p>
+
+</div>
+
+<div class="card">
+
+<h3>Xiaomi</h3>
+
+<p>Celulares e Smart Devices</p>
+
+</div>
+
+<div class="card">
+
+<h3>LG</h3>
+
+<p>TVs e Monitores</p>
+
+</div>
+
+<div class="card">
+
+<h3>Dell</h3>
+
+<p>Notebook e Desktop</p>
+
+</div>
+
+<div class="card">
+
+<h3>HP</h3>
+
+<p>Notebook e Impressoras</p>
+
+</div>
+
+<div class="card">
+
+<h3>Lenovo</h3>
+
+<p>Notebook e Tablets</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- DEPOIMENTOS -->
+<!-- ========================= -->
+
+<section>
+
+<h2 class="titulo">
+O que nossos <span>Clientes dizem</span>
+</h2>
+
+<p class="sub">
+Veja a opinião de alguns clientes que confiaram seus aparelhos à nossa assistência técnica.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>João Carlos</h3>
+<p>
+Excelente atendimento. Meu notebook ficou pronto antes do prazo.
+★★★★★
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>Fernanda</h3>
+<p>
+Trocaram a tela do meu iPhone e ficou perfeito.
+★★★★★
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>Lucas</h3>
+<p>
+Preço justo e atendimento rápido pelo WhatsApp.
+★★★★★
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section>
+
+<h2 class="titulo">
+
+Perguntas <span>Frequentes</span>
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>O orçamento é gratuito?</h3>
+
+<p>
+Sim. O pré-orçamento é totalmente gratuito.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Quanto tempo demora?</h3>
+
+<p>
+Depende do defeito e da disponibilidade das peças.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Possui garantia?</h3>
+
+<p>
+Sim. Todos os reparos possuem garantia.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Atendem empresas?</h3>
+
+<p>
+Sim. Atendemos pessoas físicas e empresas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section id="contato">
+
+<h2 class="titulo">
+
+Entre em <span>Contato</span>
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h3>Endereço</h3>
+
+<p>
+Rua antonio baraldo nº 406 vila real
+<br>
+Proximo ao Centro
+<br>
+Hortolandia
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-phone"></i>
+
+<h3>Telefone</h3>
+
+<p>
+
+(19)95328-2507
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-instagram"></i>
+
+<h3>Instagram</h3>
+
+<p>
+
+@SuaEletronica
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-brands fa-facebook"></i>
+
+<h3>Facebook</h3>
+
+<p>
+
+Sua Eletrônica
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer style="padding:40px;text-align:center;background:#081122;">
+
+<h3>
+
+Assistência Técnica Especializada
+
+</h3>
+
+<p style="margin-top:15px;color:#b9c5dd;">
+
+©  2026 Todos os direitos reservados.
+
+</p>
+
+</footer>
+
+<!-- BOTÃO WHATSAPP -->
+
+<a
+
+href="https://wa.me/5519953282507"
+
+target="_blank"
+
+id="zap"
+
+style="
+position:fixed;
+bottom:25px;
+right:25px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:34px;
+color:white;
+text-decoration:none;
+box-shadow:0 0 30px #25D366;
+z-index:999;
+">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<script>
+
+const menu=document.getElementById("menu");
+
+const nav=document.getElementById("nav");
+
+menu.onclick=()=>{
+
+nav.classList.toggle("active");
+
+}
+
+const fotos=document.getElementById("fotos");
+
+const preview=document.getElementById("previewFotos");
+
+if(fotos){
+
+fotos.addEventListener("change",function(){
+
+preview.innerHTML="";
+
+Array.from(this.files).forEach(file=>{
+
+const leitor=new FileReader();
+
+leitor.onload=function(e){
+
+const img=document.createElement("img");
+
+img.src=e.target.result;
+
+preview.appendChild(img);
+
+}
+
+leitor.readAsDataURL(file);
+
+});
+
+});
+
+}
+
+const botao=document.getElementById("btnWhatsapp");
+
+if(botao){
+
+botao.onclick=function(){
+
+let nome=document.getElementById("nome").value;
+
+let telefone=document.getElementById("telefone").value;
+
+let email=document.getElementById("email").value;
+
+let tipo=document.getElementById("tipo").value;
+
+let marca=document.getElementById("marca").value;
+
+let modelo=document.getElementById("modelo").value;
+
+let defeito=document.getElementById("defeito").value;
+
+let mensagem=
+
+`Olá!
+
+Gostaria de solicitar um pré-orçamento.
+
+Nome: ${nome}
+
+Telefone: ${telefone}
+
+Email: ${email}
+
+Tipo: ${tipo}
+
+Marca: ${marca}
+
+Modelo: ${modelo}
+
+Defeito:
+
+${defeito}
+
+Estou enviando fotos e vídeos do aparelho.`;
+
+let url="https://wa.me/5519953282507?text="+encodeURIComponent(mensagem);
+
+window.open(url,"_blank");
+
+}
+
+}
+
+window.addEventListener("scroll",()=>{
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+let topo=card.getBoundingClientRect().top;
+
+if(topo<window.innerHeight-80){
+
+card.style.opacity="1";
+
+card.style.transform="translateY(0px)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+card.style.transition=".8s";
+
+});
+
+</script>
+
+</body>
+
+</html>
